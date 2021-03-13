@@ -1,19 +1,29 @@
+import pytest
 from Config.config import TestData
-from Pages.LoginPage import LoginPage
-from Tests.test_base import BaseTest
+from Pages.Broken_image import BrokenImage
+from selenium.webdriver.common.by import By
+import requests
 
-class Test_Login(BaseTest):
+class Test_BrokenImage():
 
-assert "The Internet" in browser.title
+    def test_broken_image(self):
+        page = BrokenImage(driver)
+        page.load()
+        page.maximize()
 
-img = browser.find_element_by_xpath('//a[text()="Broken Images"]').click()
-images = browser.find_elements_by_css_selector("img")
+    def get_page_title(self):
+        self.checkbox = Checkbox(self, driver)
+        self.checkbox.get.title(TestData.checkpage_title)
+        title = broken_image.get_page_title
 
-for image in images:
-    print(image.get_attribute("src"))
-    findimg = requests.get(image.get_attribute("src"))
-    print(findimg.status_code)
+        broken.get_page_title(BrokenImage.PAGE_TITLE)
+
+    images = (By.CSS_SELECTOR, "img")
+
+    for image in images:
+
+            print(image.get_attribute("src"))
+            findimg = requests.get(image.get_attribute("src"))
+            print(findimg.status_code)
     if findimg.status_code != 200:
-        print(image.get_attribute("src"), "The image is broken!")
-
-browser.back()
+            print(image.get_attribute("src"), "The image is broken!")

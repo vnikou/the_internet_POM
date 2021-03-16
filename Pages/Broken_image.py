@@ -1,7 +1,8 @@
 from selenium.webdriver.common.by import By
 from Pages.BasePage import BasePage
 
-class BrokenImage():
+
+class BrokenImage(BasePage):
 
     url = 'https://the-internet.herokuapp.com/broken_images'
     PAGE_TITLE = "BROKEN IMAGE"

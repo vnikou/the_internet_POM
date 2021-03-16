@@ -4,6 +4,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 """The class contains all the generic methods and utilities for all pages"""
 
+
 class BasePage:
 
     """Constructor"""

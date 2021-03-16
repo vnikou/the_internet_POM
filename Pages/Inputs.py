@@ -3,6 +3,7 @@ from Pages.BasePage import BasePage
 from selenium import webdriver
 driver = webdriver.Chrome()
 
+
 class Inputs(BasePage):
 
     url = 'https://the-internet.herokuapp.com/inputs'

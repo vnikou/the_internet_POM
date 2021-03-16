@@ -3,8 +3,10 @@ from Config.config import TestData
 from Pages.Broken_image import BrokenImage
 from selenium.webdriver.common.by import By
 import requests
+from Pages.BasePage import BasePage
 
-class Test_BrokenImage():
+
+class TestBrokenImage(BasePage):
 
     def test_broken_image(self):
         page = BrokenImage(driver)

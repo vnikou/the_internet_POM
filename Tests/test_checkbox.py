@@ -2,33 +2,37 @@ from Pages.Checkbox import CheckboxPage
 import pytest
 from Config.config import TestData
 from selenium.webdriver.common.by import By
+from Pages.BasePage import BasePage
 
 
-class Test_Checkbox():
-
-    def test_Checkbox(self):
-        page = CheckboxPage(self)
+def test_checkbox(browser):
+        page = CheckboxPage(browser)
         page.load()
         page.maximize()
 
-    def get_checkbox_page_title(self):
-        self.checkboxpage = Checkbox(self.driver)
-        title = self.checkboxpage.get_checkbox_page_title(TestData.checkpage_title)
-        assert title == TestData.input_title
 
-    def get_page_title(self):
-        self.checkbox = Checkbox(self, driver)
-        self.checkbox.get.title(TestData.checkpage_title)
+def get_checkbox_page_title(browser):
+        browser.checkboxpage = CheckboxPage(browser.driver)
+        title = browser.checkboxpage.get_checkbox_page_title(TestData.checkpage_title)
+        assert title == TestData.checkpage_title
 
+# Find the selected checkbox
+        box1 = (By.XPATH, '//input[@type="checkbox"][1]')
+        if box1.is_selected():
+            print("box1 is selected")
+        else:
+            print("box1 is not selected")
 
+        box2 = (By.XPATH, '//input[@type="checkbox"][2]')
+        if box2.is_selected():
+            print("box2 is selected")
+        else:
+            print("box2 is not selected")
 
-        checkbox2 = driver.find_element (By.XPATH,'//input[@type="checkbox"][2]')
-        if checkbox2.is_selected() == False:
-            checkbox2.click()
+        if not box1.is_selected():
+            box1.click()
 
-        checkbox1 = (By.XPATH, '//input[@type="checkbox"][1]')
+        if not box2.is_selected():
+            box2.click()
 
-        if checkbox1.is_selected() == False:
-            checkbox1.click()
-
-            assert checkbox1.get_attribute('checked')
+            assert box1.get_attribute('checked')

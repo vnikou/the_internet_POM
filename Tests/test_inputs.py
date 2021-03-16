@@ -1,11 +1,12 @@
 import pytest
-
 from Pages.Inputs import Inputs
 from Config.config import TestData
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from Pages.BasePage import BasePage
 
-class Test_inputs(BasePage):
+
+class TestInputs(BasePage):
 
     def test_inputs(self):
         page = Inputs(self)

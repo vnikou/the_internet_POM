@@ -5,6 +5,8 @@ class CheckboxPage:
 
     url = 'https://the-internet.herokuapp.com/checkboxes'
 
+    checkboxes = (By.XPATH, "//input[@type='checkbox']")
+
     def __init__(self, driver):
         self.driver = driver
 
@@ -14,9 +16,13 @@ class CheckboxPage:
     def maximize(self):
         self.driver.maximize_window()
 
+    def checkbox_selected(self, number):
+        checkbox = self.driver.find_elements(self.checkboxes)
+        return checkbox.is_selected()
+
+    def click_checkbox(self, number):
+        checkbox = self.driver.find_elements(self.checkboxes)
+        checkbox.click()
+
     def get_checkbox_page_title(self, title):
         return self.get_title(title)
-
-    def checkbox_selected(self, number):
-        checkbox = self.driver.find_elements(self.checkbox)
-        return checkbox.is_selected()

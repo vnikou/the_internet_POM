@@ -1,4 +1,4 @@
-from Pages.Checkbox import CheckboxPage
+from Pages.CheckboxPage import CheckboxPage
 import pytest
 from Config.config import TestData
 from selenium.webdriver.common.by import By

@@ -13,7 +13,7 @@ class BasePage:
 
     """Click in a specific element"""
     def do_click(self, by_locator):
-        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator)).click()
+        WebDriverWait(self.driver, ).until(EC.visibility_of_element_located(by_locator)).click()
 
     """Send element"""
     def do_send_keys(self, by_locator, text):

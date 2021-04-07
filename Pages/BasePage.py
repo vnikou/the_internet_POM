@@ -8,8 +8,8 @@ from selenium.webdriver.support import expected_conditions as EC
 class BasePage:
 
     """Constructor"""
-    def __init__(self, driver):
-        self.driver = driver
+    def __init__(self, browser):
+        self.browser = browser
 
     """Click in a specific element"""
     def do_click(self, by_locator):
@@ -17,18 +17,18 @@ class BasePage:
 
     """Send element"""
     def do_send_keys(self, by_locator, text):
-        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator)).send_keys(text)
+        WebDriverWait(self.driver).until(EC.visibility_of_element_located(by_locator)).send_keys(text)
 
     """Get the text of an element"""
     def get_element_text(self, by_locator):
-        element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator))
+        element = WebDriverWait(self.driver).until(EC.visibility_of_element_located(by_locator))
         return element.text
 
     """bool is boolean (true/false)"""
     def is_enabled(self, by_locator):
-        element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator))
+        element = WebDriverWait(self.driver).until(EC.visibility_of_element_located(by_locator))
         return bool(element)
 
     def get_title(self, title):
-        WebDriverWait(self.driver, 10).until(EC.title_is(title))
+        WebDriverWait(self.driver).until(EC.title_is(title))
         return self.driver.title
